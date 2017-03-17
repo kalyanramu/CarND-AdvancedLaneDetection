@@ -41,6 +41,7 @@ class LaneTracker():
 		right_curve_str = "Right ROC: "+str(round(right_curverad,0))+"m"
 		car_offset_str = "Car Offset:"+str(round(car_offset,3))+"m"
 
+		#Overlay text
 		text_img = self.lanePlotter.textOverLay(plotted_img,left_curve_str,pos=(100,100))
 		text_img = self.lanePlotter.textOverLay(text_img,right_curve_str,pos=(100,150))
 		text_img = self.lanePlotter.textOverLay(text_img,car_offset_str,pos=(100,200))
