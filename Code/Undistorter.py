@@ -18,9 +18,7 @@ class Undistorter:
         if self.objpoints is None or self.imgpoints is None or self.shape is None:
             self.find_corners()
 
-        ret, self.mtx, self.dist, self.rvecs, self.tvecs = cv2.calibrateCamera(self.objpoints, self.imgpoints,
-                                                                               self.shape,
-                                                                               None, None)
+        ret, self.camcal_mtx, self.dist_coeff,_, self._ = cv2.calibrateCamera(self.objpoints, self.imgpoints,self.shape,None, None)
 
     def find_corners(self):
         images = glob.glob('camera_cal/calibration*.jpg')
@@ -49,4 +47,4 @@ class Undistorter:
         np.save('data/shape', self.shape)
 
     def undistort(self, img):
-        return cv2.undistort(img, self.mtx, self.dist, None, self.mtx)
+        return cv2.undistort(img, self.camcal_mtx, self.dist_coeff, None, self.camcal_mtx)
