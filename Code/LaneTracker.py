@@ -30,11 +30,20 @@ class LaneTracker():
 		#Detect the lines through curve fit and curve-fit co-efficients
 		left_fit,right_fit = self.laneDetector.detect(warp_img)
 
-		#Get left lane and right lane curvature
-		left_curverad,righr_curverad = self.laneDetector.get_curvature(warp_img)
+		#Get left lane and right lane curvature, car offset
+		left_curverad,right_curverad = self.laneDetector.get_curvature(warp_img)
+		car_offset = self.laneDetector.get_car_offset(warp_img)
 
 		#Plot the detected lanes on image
-		plotted_img = self.lanePlotter.plot(img,left_fit,right_fit,self.ptransformer.Minv)
+		plotted_img = self.lanePlotter.plotPolygon(img,left_fit,right_fit,self.ptransformer.Minv)
 
+		left_curve_str = "Left ROC: "+str(round(left_curverad,0))+"m"
+		right_curve_str = "Right ROC: "+str(round(right_curverad,0))+"m"
+		car_offset_str = "Car Offset:"+str(round(car_offset,3))+"m"
+
+		text_img = self.lanePlotter.textOverLay(plotted_img,left_curve_str,pos=(100,100))
+		text_img = self.lanePlotter.textOverLay(text_img,right_curve_str,pos=(100,150))
+		text_img = self.lanePlotter.textOverLay(text_img,car_offset_str,pos=(100,200))
 		return plotted_img
+
 

@@ -7,7 +7,7 @@ class LanePlotter():
 		self.alpha = alpha
 		self.poly_color = color
 
-	def plot(self, undist_img, left_fit, right_fit, Minv):
+	def plotPolygon(self, undist_img, left_fit, right_fit, Minv):
 		color_warp = np.zeros_like(undist_img).astype(np.uint8)
 
 		fity = np.linspace(0, undist_img.shape[0] - 1, undist_img.shape[0])
@@ -28,3 +28,6 @@ class LanePlotter():
 		result = cv2.addWeighted(undist_img, 1, newwarp, self.alpha, 0)
 
 		return result
+
+	def textOverLay(self,img,text,pos):
+		return cv2.putText(img,text,pos, cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
