@@ -23,7 +23,7 @@ class LaneDetector:
         margin = self.margin
         minpix = self.minpix
         nwindows = self.nwindows
-        # Assuming you have created a warped binary image called "binary_warped"
+        # Assuming you have created a warped binary image
         # Take a histogram of the bottom half of the image
         histogram = np.sum(img[int(img.shape[0]/2):,:], axis=0)
         

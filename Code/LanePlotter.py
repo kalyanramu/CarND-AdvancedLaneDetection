@@ -8,7 +8,7 @@ class LanePlotter():
 		self.poly_color = color
 
 	def plotPolygon(self, undist_img, left_fit, right_fit, Minv):
-		color_warp = np.zeros_like(undist_img).astype(np.uint8)
+		
 
 		fity = np.linspace(0, undist_img.shape[0] - 1, undist_img.shape[0])
 		left_fitx = left_fit[0] * fity ** 2 + left_fit[1] * fity + left_fit[2]
@@ -20,6 +20,7 @@ class LanePlotter():
 		pts = np.hstack((pts_left, pts_right))
 		pts = np.array(pts, dtype=np.int32)
 
+		color_warp = np.zeros_like(undist_img).astype(np.uint8)
 		cv2.fillPoly(color_warp, pts, self.poly_color)
 
 		# Warp the blank back to original image space using inverse perspective matrix (Minv)
