@@ -1,5 +1,5 @@
 
-### Advanced Lane Finding Project ###
+### Advanced Lane Finding Project
 
 The main goal of the project is detect lanes on an image, find radius of curvature of the road and offset of center of car.
 
@@ -14,10 +14,10 @@ The steps below is a processing pipeline to detect the lanes and make the measur
 * Warp the detected lane boundaries back onto the original image.
 * Overlay the lanes and measurements on the original image
 
-** Processing Pipeline **
+** Processing Pipeline
 <img src = './Code/report_images/ImageProcessingPipeline.png'>
 
-** Code Organization **
+** Code Organization 
 
 | File                                | Description                                                                        |
 | ----------------------------------- | ---------------------------------------------------------------------------------- |
