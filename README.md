@@ -14,7 +14,7 @@ The steps below is a processing pipeline to detect the lanes and make the measur
 * Warp the detected lane boundaries back onto the original image.
 * Overlay the lanes and measurements on the original image
 
-** Processing Pipeline
+#Processing Pipeline
 <img src = './Code/report_images/ImageProcessingPipeline.png'>
 
 ** Code Organization 
