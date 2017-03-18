@@ -14,6 +14,21 @@ The steps below is a processing pipeline to detect the lanes and make the measur
 * Warp the detected lane boundaries back onto the original image.
 * Overlay the lanes and measurements on the original image
 
+** Processing Pipeline **
+<img src = './Code/report_images/ImageProcessingPipeline.png'>
+
+** Code Organization **
+
+| File                                | Description                                                                        |
+| ----------------------------------- | ---------------------------------------------------------------------------------- |
+|`/Code/MainCode.ipynb`      | Code demonstrating steps of complete image processing pipeline |
+|`/Code/Undistorter.py`      | Class for camera calibration based on the set of calibration images. |
+|`/Code/Thresholder.py`     | Class for Color and Gradient Thresholding of image|
+|`/Code/PerspectiveTransformer.py`   | Class for performing perspective transformation and it's inverse|
+|`/Code/LaneDetector.py` | Class of detected lanes and fitting curve, also includes measurement routines |
+|`/Code/LanePlotter.py`        | Class for Plotting Lanes and Measurements onto image |
+|`/Code/LaneTracker.py`      | Class inclusive of all image processing pipeline steps |
+
 ### Procesing Pipeline ###
 
 ### Step 1: Camera Calibration ###
@@ -43,7 +58,7 @@ The code for the unistorting is found in undistorter.py.
 
 | Before Calibration |After Calibration|
 |---|---|
-| ![before cal](./report_images/before_cal.png) | ![after cal](./report_images/after_cal.png) |
+| ![before cal](./Code/report_images/before_cal.png) | ![after cal](./Code/report_images/after_cal.png) |
 
 
 ### Step 2: Thresholding to detect edges###
@@ -60,7 +75,7 @@ Reference: https://medium.com/@MSqalli/advanced-lane-detection-6a769de0d581#.qhd
 
 | Before Thresholding (road image)|After Thresholding|
 |---|---|
-| ![before thresh](./report_images/distort_correct_img.png) | ![after thresh](./report_images/thresholded_img.png) |
+| ![before thresh](./Code/report_images/distort_correct_img.png) | ![after thresh](./Code/report_images/thresholded_img.png) |
 
 ### Step 3: Correct Perspective Error ###
 
@@ -86,7 +101,7 @@ Code for this can be found at PerspectiveTransformer.py
 
 | Before perspective correction (thresholded image)|After Perspective correction (thresholded image)|
 |---|---|
-| ![before cal](./report_images/thresholded_img.png) | ![after cal](./report_images/perspective_corrected.png) |
+| ![before cal](./Code/report_images/thresholded_img.png) | ![after cal](./Code/report_images/perspective_corrected.png) |
 
 ### Step 4: Detect Lanes using Sliding Window approach ###
 I have used the sliding window approach to identify and fit curve to the lane
@@ -100,7 +115,7 @@ I have used the sliding window approach to identify and fit curve to the lane
 Code for this can be found in LaneDetector.py
 
 ** Curve fit result **
-<img src="./report_images/curve_fit.png"/>
+<img src="./Code/report_images/curve_fit.png"/>
 
 
 ### Step 5: Project the curve fitted lines to original image ###
@@ -114,12 +129,12 @@ Once the curve-fitted lanes are found, they are projected back into original ima
 Code for this can be found in LanePlotter.py
 
 ** Detected lane on original image **
-<img src = "./report_images/lane_overlay.png">
+<img src = "./Code/report_images/lane_overlay.png">
 
 ### Step 6: Find radius of curvature and offset from center ###
 
 Earlier, we located the lane line pixels, used their x and y pixel positions to fit a second order polynomial curve:
-<img src ="./report_images/radius of curvature.jpg">
+<img src ="./Code/report_images/radius of curvature.jpg">
 
 a) Radius of Curvature:
 f(y)=A*(y**2)+B*y+C
@@ -136,7 +151,7 @@ This can be calculated as the distance between (left lane position + right lane 
 Code for this and position offset can be found inside process function of LaneTracker.py
 
 ** Result: **
-<img src = "./report_images/lane_measure_overlay.png">
+<img src = "./Code/report_images/lane_measure_overlay.png">
 
 ## Final Video ##
 
