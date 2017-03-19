@@ -165,7 +165,7 @@ This was a great project experience. This project gave me first hand experience 
 However, more tuning needs to be done so that the pipeline is robust to varying lighting conditions, when the markings are not clear etc., as observed in challenge videos. Future improvents needs to be made so that better thresholding algorithm is applied so that it robust to problems discussed earlier. I am curious to see how other techniques such as deep learning work, as in previous project behavioral cloning it was able to steer even when lane markings were missing. Overall, I thoroughly enjoyed applying computer vision techniques.
 
 Future Study:
-1. I want to explore color thresholding in depth later and get intuition for different color spaces. For example, stauration vs paleness when you look at a image
+1. I want to explore color thresholding in depth later and get intuition for different color spaces (for example, stauration vs paleness when you look at a image..so that I use HSV vs RGB)
 2. While I didn't look at the frame rate of processing pipeline, it would be interesting to see how we can make the system robust while operating at real-time
 
 ```python
