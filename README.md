@@ -158,7 +158,7 @@ The final video of the pipeline implementation can be watched here:
 
 https://youtu.be/BMUABwRbmZE
 
-## Discussion##
+## Discussion
 
 This was a great project experience. This project gave me first hand experience at building image processing pipelines.During the initial phases, the green polygon was going out of the lane bounds indicating, some error in lane detection calculations. This was because the output of threshold wasn't as clean as expected. I found some clues as where to place threshold by looking at histogram of the gradient images, angle images. However, I got breakthrough as I noticed that other students were using yellow and white masks in HSV domain to improve lane detection. This enhanced the performance of pipeline greatly.
 
