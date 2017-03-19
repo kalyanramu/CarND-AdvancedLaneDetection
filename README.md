@@ -43,8 +43,6 @@ Radial Distortion is caused due to the spherical shape of lens. This is because 
 #### Tangential Distortion:
 When the lens is not placed parallel to the imaging plane (the CCD sensor, etc) a tangential distortion is produced.
 
-
-
 The code for the unistorting is found in undistorter.py.
 
 #### Algorithm:
@@ -160,6 +158,15 @@ The final video of the pipeline implementation can be watched here:
 
 https://youtu.be/BMUABwRbmZE
 
+## Discussion##
+
+This was a great project experience. This project gave me first hand experience at building image processing pipelines.During the initial phases, the green polygon was going out of the lane bounds indicating, some error in lane detection calculations. This was because the output of threshold wasn't as clean as expected. I found some clues as where to place threshold by looking at histogram of the gradient images, angle images. However, I got breakthrough as I noticed that other students were using yellow and white masks in HSV domain to improve lane detection. This enhanced the performance of pipeline greatly.
+
+However, more tuning needs to be done so that the pipeline is robust to varying lighting conditions, when the markings are not clear etc., as observed in challenge videos. Future improvents needs to be made so that better thresholding algorithm is applied so that it robust to problems discussed earlier. I am curious to see how other techniques such as deep learning work, as in previous project behavioral cloning it was able to steer even when lane markings were missing. Overall, I thoroughly enjoyed applying computer vision techniques.
+
+Future Study:
+1. I want to explore color thresholding in depth later and get intuition for different color spaces. For example, stauration vs paleness when you look at a image
+2. While I didn't look at the frame rate of processing pipeline, it would be interesting to see how we can make the system robust while operating at real-time
 
 ```python
 
